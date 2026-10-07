@@ -9,7 +9,6 @@ public class Enrollment {
     private LocalDate enrollmentDate;
     private EnrollmentStatus status;
 
-    //Constructor
     public Enrollment(int id, int studentId, int courseId, LocalDate enrollmentDate, EnrollmentStatus status) {
         this.id = id;
         this.studentId = studentId;
@@ -18,7 +17,6 @@ public class Enrollment {
         this.status = status;
     }
 
-    //Getters and Setters
     public int getId() {return id;}
     public int getStudentId() {return studentId;}
     public int getCourseId() {return courseId;}

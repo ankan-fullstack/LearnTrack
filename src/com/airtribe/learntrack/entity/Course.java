@@ -7,7 +7,6 @@ public class Course {
     private int durationInWeeks;
     private boolean active;
 
-    //Constructor
     public Course(int id, String courseName, String description, int durationInWeeks, boolean active) {
         this.id = id;
         this.courseName = courseName;
@@ -16,7 +15,6 @@ public class Course {
         this.active = active;
     }   
 
-    //Getters and Setters
     public int getId() {return id;}
     public String getCourseName() {return courseName;}
     public String getDescription() {return description;}

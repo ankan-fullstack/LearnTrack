@@ -6,7 +6,6 @@ public class Person {
     private String lastName;
     private String email;
 
-    //Constructor
     public Person(int id, String firstName, String lastName, String email) {
         this.id = id;
         this.firstName = firstName;
@@ -14,7 +13,6 @@ public class Person {
         this.email = email;
     }
 
-    //Getters and Setters
     public int getId() {return id;}
     public String getFirstName() {return firstName;}
     public String getLastName() {return lastName;}
@@ -24,7 +22,6 @@ public class Person {
     public void setLastName(String lastName) {this.lastName = lastName;}
     public void setEmail(String email) {this.email = email;}
 
-    //methods
     public String getDisplayName() {
         return firstName + " " + lastName;
     }   

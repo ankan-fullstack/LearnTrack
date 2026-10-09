@@ -42,7 +42,7 @@ public class InputValidator {
 
     public static int validateChoice(String value, int min, int max) {
         try {
-            int choice = validatePositiveInt(value);
+            int choice = Integer.parseInt(value);
             if (choice < min || choice > max) {
                 throw new InvalidInputException("Choice must be between " + min + " and " + max + ".");
             }

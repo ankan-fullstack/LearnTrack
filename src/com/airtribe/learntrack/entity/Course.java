@@ -20,6 +20,8 @@ public class Course {
     public String getDescription() {return description;}
     public int getDurationInWeeks() {return durationInWeeks;}
     public boolean isActive() {return active;}
+    public void setCourseName(String courseName) {this.courseName = courseName;}
+    public void setDurationInWeeks(int durationInWeeks) {this.durationInWeeks = durationInWeeks;}
     public void setActive(boolean active) {this.active = active;}
     public void setDescription(String description) {this.description = description;}
 }

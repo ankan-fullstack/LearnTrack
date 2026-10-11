@@ -33,7 +33,8 @@ public class MenuOptions {
     public static final int ENROLLMENT_BACK = 5;
 
     public static final int ENROLLMENT_VIEW_BY_ID = 1;
-    public static final int ENROLLMENT_VIEW_ALL = 2;
-    public static final int ENROLLMENT_VIEW_BACK = 3;
+    public static final int ENROLLMENT_VIEW_BY_STUDENT = 2;
+    public static final int ENROLLMENT_VIEW_ALL = 3;
+    public static final int ENROLLMENT_VIEW_BACK = 4;
     
 }

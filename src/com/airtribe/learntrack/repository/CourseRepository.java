@@ -42,6 +42,8 @@ public class CourseRepository {
 
     public void update(Course course) {
         Course existingCourse = findById(course.getId());
+        existingCourse.setCourseName(course.getCourseName());
+        existingCourse.setDurationInWeeks(course.getDurationInWeeks());
         existingCourse.setActive(course.isActive());
         existingCourse.setDescription(course.getDescription());
     }

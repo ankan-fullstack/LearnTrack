@@ -23,4 +23,7 @@ public class Enrollment {
     public LocalDate getEnrollmentDate() {return enrollmentDate;}
     public EnrollmentStatus getStatus() {return status;}
     public void setStatus(EnrollmentStatus status) {this.status = status;}
+    public void setEnrollmentDate(LocalDate enrollmentDate) {this.enrollmentDate = enrollmentDate;}
+    public void setStudentId(int studentId) {this.studentId = studentId;}
+    public void setCourseId(int courseId) {this.courseId = courseId;}
 }

@@ -31,8 +31,10 @@ public class CourseService {
         return courseRepository.findAllActive();
     }
 
-    public void updateCourse(int id, String description, boolean isActive) {
+    public void updateCourse(int id,String name, String description,int duration, boolean isActive) {
         Course course = courseRepository.findById(id);
+        course.setCourseName(name);
+        course.setDurationInWeeks(duration);
         course.setDescription(description);
         course.setActive(isActive);
         courseRepository.update(course);

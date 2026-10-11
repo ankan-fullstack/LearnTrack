@@ -306,14 +306,20 @@ public class Main {
 
             System.out.print("Course ID: ");
             int id = InputValidator.validatePositiveInt(scanner.nextLine());
+            
+            System.out.print("Course Name: ");
+            String name = InputValidator.validateNonEmptyString(scanner.nextLine());
 
             System.out.print("New Description: ");
             String description = InputValidator.validateNonEmptyString(scanner.nextLine());
 
+            System.out.print("Duration in weeks: ");
+            int duration = InputValidator.validatePositiveInt(scanner.nextLine());
+
             System.out.print("Is Course Active? (true/false): ");
             boolean active = InputValidator.validateBoolean(scanner.nextLine());
 
-            courseService.updateCourse(id, description, active);
+            courseService.updateCourse(id, name, description, duration, active);
             System.out.println("Course updated successfully.");
         } catch (InvalidInputException e) {
             System.out.println("Invalid input: " + e.getMessage());
@@ -512,15 +518,19 @@ public class Main {
             System.out.println("========== View Enrollment ==========");
             System.out.println(AppConstants.SEPARATOR);
             System.out.println(MenuOptions.ENROLLMENT_VIEW_BY_ID + ". View by ID");
+            System.out.println(MenuOptions.ENROLLMENT_VIEW_BY_STUDENT + ". View by Student ID");
             System.out.println(MenuOptions.ENROLLMENT_VIEW_ALL + ". View All");
             System.out.println(MenuOptions.ENROLLMENT_VIEW_BACK + ". Back");
 
             try {
-                int choice = InputValidator.validateChoice(scanner.nextLine(), 1, 3);
+                int choice = InputValidator.validateChoice(scanner.nextLine(), 1, 4);
 
                 switch (choice) {
                     case MenuOptions.ENROLLMENT_VIEW_BY_ID:
                         viewEnrollmentById(scanner, enrollmentService);
+                        break;
+                    case MenuOptions.ENROLLMENT_VIEW_BY_STUDENT:
+                        viewEnrollmentsByStudentId(scanner, enrollmentService);
                         break;
                     case MenuOptions.ENROLLMENT_VIEW_ALL:
                         viewAllEnrollments(enrollmentService);
@@ -549,6 +559,29 @@ public class Main {
             System.out.println("Invalid input: " + e.getMessage());
         } catch (EntityNotFoundException e) {
             System.out.println(e.getMessage());
+        }
+    }
+
+    private static void viewEnrollmentsByStudentId(
+            Scanner scanner,
+            EnrollmentService enrollmentService) {
+
+        try {
+            System.out.print("Student ID: ");
+            int studentId = InputValidator.validatePositiveInt(scanner.nextLine());
+            List<Enrollment> enrollments = enrollmentService.getEnrollmentsByStudentId(studentId);
+
+            if (enrollments.isEmpty()) {
+                System.out.println("No enrollments found for student ID: " + studentId);
+                return;
+            }
+            System.out.println();
+            System.out.println("========== Enrollments for Student ID: " + studentId + " ==========");
+            for (Enrollment enrollment : enrollments) {
+                printEnrollment(enrollment);
+            }
+        } catch (InvalidInputException e) {
+            System.out.println("Invalid input: " + e.getMessage());
         }
     }
 

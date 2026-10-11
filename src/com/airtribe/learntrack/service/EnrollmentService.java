@@ -57,4 +57,8 @@ public class EnrollmentService {
     public List<Enrollment> getAllEnrollments() {
         return enrollmentRepository.findAll();
     }
+
+    public List<Enrollment> getEnrollmentsByStudentId(int studentId) {
+        return enrollmentRepository.findByStudentId(studentId);
+    }
 }
